@@ -1,0 +1,8 @@
+# Default ignored files
+/workspace.xml
+.idea/
+/compiler.xml
+/encodings.xml
+/misc.xml
+/vcs.xml
+/$PRODUCT_WORKSPACE_FILE$
