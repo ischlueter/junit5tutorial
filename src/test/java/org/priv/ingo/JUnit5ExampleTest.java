@@ -2,7 +2,7 @@ package org.priv.ingo;
 
 import org.junit.jupiter.api.*;
 
-@DisplayName("JUnit 5 Example")
+@DisplayName("JUnit 5 Nested Example")
 class JUnit5ExampleTest {
   @BeforeAll
   static void beforeAll() {
@@ -24,26 +24,51 @@ class JUnit5ExampleTest {
     System.out.println("After all test methods");
   }
 
+  @Nested
+  @DisplayName("Tests for the method A")
+  class A {
+
+    @BeforeEach
+    void beforeEach() {
+      System.out.println("Before each test method of the A class");
+    }
+
+    @AfterEach
+    void afterEach() {
+      System.out.println("After each test method of the A class");
+    }
+
+    @Test
+    @DisplayName("Example test for method A")
+    void sampleTestForMethodA() {
+      System.out.println("Example test for method A");
+    }
+
+    @Nested
+    @DisplayName("When X is true")
+    class WhenX {
+
+      @BeforeEach
+      void beforeEach() {
+        System.out.println("Before each test method of the WhenX class");
+      }
+
+      @AfterEach
+      void afterEach() {
+        System.out.println("After each test method of the WhenX class");
+      }
+
+      @Test
+      @DisplayName("Example test for method A when X is true")
+      void sampleTestForMethodAWhenX() {
+        System.out.println("Example test for method A when X is true");
+      }
+    }
+  }
+
   @Test
   void justAnExample() {
-    System.out.println("Test 1");
-  }
-
-  @Test
-  void justAnExample2() {
-    System.out.println("Test 2");
-  }
-
-  @Test
-  @DisplayName("First test")
-  void firstTest() {
-    System.out.println("First test method");
-  }
-
-  @Test
-  @DisplayName("Second test")
-  void secondTest() {
-    System.out.println("Second test method");
+    System.out.println("Test 1 in outer class");
   }
 
 }
